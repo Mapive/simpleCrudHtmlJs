@@ -40,7 +40,13 @@ function refreshTable(){
             <td><button type="button" class="btn btn-danger" id="deleta-${linha.id}" onclick="deleta(${linha.id})">Deletar</button></td>
             `;
             document.querySelector("#tabelaRegistro>tbody").appendChild(novaLinha)}
-    )
+    );
+
+    
+    $("input").val("");
+    $("#modalAdd").modal("hide")
+    $("#modalUpdate").modal("hide")
+
 
 }
 
@@ -68,7 +74,9 @@ function deleta(idLinha){
 }
 
 function atualiza(){
-    
+
+    let registroAnt = JSON.parse(localStorage.getItem("bancoLocal"));
+
     let nome = document.querySelector("#nomeModalUpd").value;
     let distancia = document.querySelector("#distanciaModalUpd").value;
     let data  = document.querySelector("#dataModalUpd").value;
